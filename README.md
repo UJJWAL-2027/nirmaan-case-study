@@ -21,6 +21,26 @@ For each rubric criterion we compute:
 - Combined per-criterion score = 0.4 * keyword + 0.3 * semantic + 0.3 * length
 - Overall score (0-100) = weighted average across criteria using weights provided in the rubric.
 
+## Tech Stack Used
+-Backend::
+Python 3.8+ – Primary language used for the scoring engine
+Flask – Lightweight web framework to expose a simple scoring API
+
+-NLP & Scoring::
+Sentence-Transformers (MiniLM-L6-v2) – For semantic similarity scoring between transcript and rubric criteria
+Pandas – To load and process the rubric Excel file
+OpenPyXL – For Excel file parsing
+NumPy – Numerical operations and intermediate calculations
+
+-Application Logic::
+Custom Rule-Based Scoring
+Keyword matching
+Length scoring (min/max words)
+Weighted rubric-based score aggregation
+
+-Hybrid Scoring Model::
+Combines semantic + rule-based signals to produce an overall score from 0–100
+
 ## Run locally (short)
 1. Create a virtualenv and activate it.
 2. `pip install -r requirements.txt`
